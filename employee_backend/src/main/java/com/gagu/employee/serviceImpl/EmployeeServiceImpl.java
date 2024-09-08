@@ -1,12 +1,16 @@
 package com.gagu.employee.serviceImpl;
 
 import com.gagu.employee.entity.Employee;
+import com.gagu.employee.model.EmployeeLogin;
 import com.gagu.employee.repo.EmployeeRepo;
 import com.gagu.employee.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     EmployeeRepo employeeRepo;
+
 
 
 
@@ -35,5 +40,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
 
+   // @Override
 
 }

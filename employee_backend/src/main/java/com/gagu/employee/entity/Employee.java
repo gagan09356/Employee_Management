@@ -1,22 +1,22 @@
 package com.gagu.employee.entity;
 
+import dev.mccue.magicbean.MagicBean;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@MagicBean(toString_ = true, allArgsStaticFactory = true)
 @Table(name="Employee")
-public class Employee {
+public non-sealed class  Employee extends EmployeeBeanOps{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String username;
-    private String email;
-    private String password;
-    private String role;
+     Integer id;
+     String username;
+     String email;
+     String password;
+     String role;
+
 }

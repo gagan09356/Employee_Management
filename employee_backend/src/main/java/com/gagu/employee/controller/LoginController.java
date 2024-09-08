@@ -1,7 +1,9 @@
 package com.gagu.employee.controller;
 
+import com.gagu.employee.entity.Employee;
 import com.gagu.employee.model.EmployeeLogin;
 import com.gagu.employee.serviceImpl.EmployeeServiceImpl;
+import com.gagu.employee.serviceImpl.EmployeeVerify;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,17 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth/")
 public class LoginController {
 
-    /*@GetMapping("/register")
-    public  ResponseEntity<String> register(){
-        return ResponseEntity.ok("Registered");
-    }*/
     @Autowired
-    EmployeeServiceImpl employeeService;
+    EmployeeVerify employeeVerify;
 
     @GetMapping("/loginUser")
     public ResponseEntity<String> login(@RequestBody EmployeeLogin employeeLogin) {
-        //employeeService.
-       return ResponseEntity.ok("Hello World");
+        return ResponseEntity.ok(employeeVerify.verifyUser(employeeLogin));
     }
     @GetMapping("/logoutUser")
     public ResponseEntity<String> logout() {
