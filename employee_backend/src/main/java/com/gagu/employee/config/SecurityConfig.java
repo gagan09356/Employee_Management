@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                      registry -> {
                         registry.requestMatchers("/api/auth/register","/api/auth/loginUser","/api/auth/logoutUser").permitAll();
-                        registry.requestMatchers("/api/auth/homeUser").hasRole("USER");
+                        registry.requestMatchers("/api/auth/homeUser").hasAnyRole("USER","ADMIN");
                         /*registry.requestMatchers("/api/auth/logoutUser").permitAll();*/
                         registry.anyRequest().authenticated();
                     })
